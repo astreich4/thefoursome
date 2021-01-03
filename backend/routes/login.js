@@ -47,7 +47,7 @@ router.route('/')
             res.cookie("authCookie",hashedsec);
             //inserts the current user into the db
             let results = await mongo.collection('currentUsers').insert(currentUser);
-            res.send("logged in, check for the cookie")
+            res.redirect('http://localhost:3000');
         }else{
             //here if the password is wrong
             res.send('Username or password not found');

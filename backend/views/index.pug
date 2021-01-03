@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1= "Dummy Pug home page"
+  p This is only for development because the front end will be in angluar
+
+  if login == true
+    p You are Logged in! Click below to Log out
+    body
+      form(action='/logout',method='POST')
+        input(type='submit', value='Submit')
+  else if login == false
+    p you are not logged in, click below to go to the login page
+    body
+      form(action='/login',method='GET')
+        input(type='submit', value='Submit')
