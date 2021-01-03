@@ -5,7 +5,12 @@ const { body, validationResult } = require('express-validator');
 let  md5 = require('md5');
 
 
-/* POST route to make a new user and add them to the db */
+/* POST route to make a new user and add them to the db
+* to-do:
+* - add checks for the username being unique, otherwise its gonna break
+*
+*
+*  */
 router.route('/')
     .post(
         body('firstname').trim().isLength(1).isAlpha(),
