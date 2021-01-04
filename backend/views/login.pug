@@ -1,0 +1,12 @@
+h1="Foursome log in tests. This is a dev page."
+
+
+p Log in form
+    body
+        form(action='/login',method='POST')
+            p
+            | Username:
+            input(name='username',value='')
+            | Password:
+            input(name='password',value='')
+            input(type='submit', value='Submit')

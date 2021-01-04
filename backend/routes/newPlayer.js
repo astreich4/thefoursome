@@ -2,13 +2,21 @@ var express = require('express');
 var router = express.Router();
 const db = require('../mongoCx');
 const { body, validationResult } = require('express-validator');
+let  md5 = require('md5');
 
 
-/* GET users listing. */
+/* POST route to make a new user and add them to the db
+* to-do:
+* - add checks for the username being unique, otherwise its gonna break
+*
+*
+*  */
 router.route('/')
     .post(
-        body('firstname').isLength(1).isAlpha(),
-        body('lastname').isLength(1).isAlpha(),
+        body('firstname').trim().isLength(1).isAlpha(),
+        body('lastname').trim().isLength(1).isAlpha(),
+        body('username').trim().isLength(1),
+        body('password').trim().isLength(5),
 
 
         async (req, res) => {
@@ -17,10 +25,14 @@ router.route('/')
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array() });
             }
+            let hashedp = md5(req.body.password);
+
             let player =
                 {
                     firstname: req.body.firstname,
-                    lastname: req.body.lastname
+                    lastname: req.body.lastname,
+                    username: req.body.username,
+                    password: hashedp
 
                 }
         let mongo = await db.getDB('foursome');
