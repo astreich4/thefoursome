@@ -1,0 +1,22 @@
+h1="Foursome add round test. This is a dev page."
+
+
+p add round form
+    body
+        form(action='/addRound',method='POST')
+            p
+            | Course name:
+            input(name='course_name',value='')
+            | slope:
+            input(name='slope',value='')
+            | Yardage:
+            input(name='yardage',value='')
+            | score:
+            input(name='score',value='')
+            | holes played:
+            input(name='holes_played',value='')
+            | date:
+            input(name='date',value='')
+            input(type='submit', value='Submit')
+
+

@@ -8,11 +8,13 @@ var randomstring = require("randomstring");
 
 /* GET home page. */
 
-router.route('/')
+router.route('/').get((req,res,next)=>{
+    res.render('addRound')
+})
     .post(
 
-        body('course_name').trim().isLength(1).isAlpha(),
-        body('slope').trim().isLength(1).isAlpha(),
+        body('course_name').trim().isLength(1).isAlpha(" "),
+        body('slope').trim().isLength(1),
         body('yardage').trim().isLength(1),
         body('score').trim().isLength(1),
         body('holes_played').trim().isLength(1),
@@ -30,7 +32,7 @@ router.route('/')
                     res.render('index', { login: false });
 
                 }else{
-                    //you are logged in anthe cookie is legit
+                    //you are logged in and the cookie is legit
                     //code happens below
                     const errors = validationResult(req);
                     if (!errors.isEmpty()) {
@@ -50,8 +52,14 @@ router.route('/')
 
 
                         }
-                    res.clearCookie('authCookie')
-                    res.render('index', { login: false });
+                    const updateDoc = {
+                        $push: {
+                            rounds: round},
+                    	    };
+
+                    const result = await mongo.collection('players').updateOne({username: results[0].username}, updateDoc);
+
+                    res.send("added round");
                 }
             }
         })

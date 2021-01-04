@@ -32,7 +32,8 @@ router.route('/')
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
                     username: req.body.username,
-                    password: hashedp
+                    password: hashedp,
+                    rounds:[]
 
                 }
         let mongo = await db.getDB('foursome');
