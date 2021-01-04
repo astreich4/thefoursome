@@ -11,8 +11,6 @@ var randomstring = require("randomstring");
 router.route('/')
     .post(
         async (req, res) => {
-//
-
             if(req.cookies.authCookie != undefined){
                 let mongo = await db.getDB('foursome');
                 let results = await mongo.collection('currentUsers').find({loginsecret: req.cookies.authCookie}).toArray();
