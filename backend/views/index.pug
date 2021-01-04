@@ -5,7 +5,8 @@ block content
   p This is only for development because the front end will be in angluar
 
   if login == true
-    p You are Logged in! Click below to Log out
+    p You are Logged in! Click the button to add a round, click submit to Log out
+    a(class='button' href='/addRound') Add Round
     body
       form(action='/logout',method='POST')
         input(type='submit', value='Submit')

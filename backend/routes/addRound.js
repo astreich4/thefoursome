@@ -13,7 +13,7 @@ router.route('/').get((req,res,next)=>{
 })
     .post(
 
-        body('course_name').trim().isLength(1).isAlpha(" "),
+        body('course_name').trim().isLength(1).isAlpha('en-US'," -'"),
         body('slope').trim().isLength(1),
         body('yardage').trim().isLength(1),
         body('score').trim().isLength(1),
@@ -38,8 +38,11 @@ router.route('/').get((req,res,next)=>{
                     if (!errors.isEmpty()) {
                         return res.status(400).json({ errors: errors.array() });
                     }
+                    let currentData = await mongo.collection('players').find({username: results[0].username}).toArray();
+                    
 
-
+                    //id is a random string + the number it is added in the list, there is a better way to make IDs and I may come back anf fix this
+                    let round_id = randomstring.generate(5)+currentData[0].rounds.length;
                     let round =
                         {
                             course_name: req.body.course_name,
@@ -48,7 +51,8 @@ router.route('/').get((req,res,next)=>{
                             slope: req.body.slope,
                             holes_played: req.body.holes_played,
                             date_played: req.body.date,
-                            golfer: results[0].username
+                            golfer: results[0].username,
+                            id: round_id
 
 
                         }
@@ -59,7 +63,10 @@ router.route('/').get((req,res,next)=>{
 
                     const result = await mongo.collection('players').updateOne({username: results[0].username}, updateDoc);
 
-                    res.send("added round");
+                    // res.send("added round"); -- //use this bit with angular
+                    console.log(result)
+                    console.log("added the round")
+                    res.redirect('http://localhost:3000'); //use this while testing with pug
                 }
             }
         })

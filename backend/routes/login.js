@@ -47,6 +47,7 @@ router.route('/')
             res.cookie("authCookie",hashedsec);
             //inserts the current user into the db
             let results = await mongo.collection('currentUsers').insert(currentUser);
+            //i think you should only redirect when using the pug tests
             res.redirect('http://localhost:3000');
         }else{
             //here if the password is wrong
