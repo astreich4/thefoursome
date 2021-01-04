@@ -1,0 +1,13 @@
+h1="Foursome remove round test. This is a dev page."
+
+
+p add round form
+    body
+        form(action='/removeRound',method='POST')
+            p
+            | Round id:
+            input(name='id',value='')
+            |
+            input(type='submit', value='Submit')
+
+

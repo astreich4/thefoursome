@@ -23,9 +23,9 @@ router.route('/').get((req,res,next)=>{
         async (req, res) => {
             if(req.cookies.authCookie != undefined){
                 let mongo = await db.getDB('foursome');
-                let results = await mongo.collection('currentUsers').find({loginsecret: req.cookies.authCookie}).toArray();
-                console.log( "results from mongo: " + results);
-                if (!results.length)  {
+                let results1 = await mongo.collection('currentUsers').find({loginsecret: req.cookies.authCookie}).toArray();
+                console.log( "results from mongo: " + results1);
+                if (!results1.length)  {
                     //you are not logged in
                     console.log("you are not logged in")
                     res.clearCookie('authCookie')
@@ -38,11 +38,11 @@ router.route('/').get((req,res,next)=>{
                     if (!errors.isEmpty()) {
                         return res.status(400).json({ errors: errors.array() });
                     }
-                    let currentData = await mongo.collection('players').find({username: results[0].username}).toArray();
-                    
+                    let results = await mongo.collection('players').find({username: results1[0].username}).toArray();
+
 
                     //id is a random string + the number it is added in the list, there is a better way to make IDs and I may come back anf fix this
-                    let round_id = randomstring.generate(5)+currentData[0].rounds.length;
+                    let round_id = randomstring.generate(5)+results[0].rounds.length;
                     let round =
                         {
                             course_name: req.body.course_name,

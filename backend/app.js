@@ -10,6 +10,7 @@ var newPlayerRouter = require('./routes/newPlayer');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var addRoundRouter = require('./routes/addRound');
+var removeRoundRouter = require('./routes/removeRound');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/newPlayer',newPlayerRouter);
 app.use('/login',loginRouter);
 app.use('/logout',logoutRouter);
 app.use('/addRound',addRoundRouter);
+app.use('/removeRound',removeRoundRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
