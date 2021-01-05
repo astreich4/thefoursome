@@ -12,6 +12,7 @@ var logoutRouter = require('./routes/logout');
 var addRoundRouter = require('./routes/addRound');
 var removeRoundRouter = require('./routes/removeRound');
 var getRoundsRouter = require('./routes/getRounds');
+var newGroupRouter = require('./routes/newGroup');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/logout',logoutRouter);
 app.use('/addRound',addRoundRouter);
 app.use('/removeRound',removeRoundRouter);
 app.use('/getRounds',getRoundsRouter);
+app.use('/newGroup',newGroupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

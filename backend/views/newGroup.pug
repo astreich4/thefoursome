@@ -1,0 +1,11 @@
+h1="Foursome new Group. This is a dev page."
+
+
+p add round form
+    body
+        form(action='/newGroup',method='POST')
+            p
+            | Group name:
+            input(name='gname',value='')
+
+            input(type='submit', value='Submit')

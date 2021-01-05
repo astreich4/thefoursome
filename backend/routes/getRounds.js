@@ -30,7 +30,7 @@ router.route('/').get(
                     console.log(typeof results[0].rounds);
                     //use this while testing with pug
                     res.render('getRounds', { roundstoPug: JSON.stringify(results[0].rounds) });
-                    //will probably use something like res.json(results[0].rounds) after the backend is done
+                    //will probably use something like res.json(results[0].rounds) for angular after the backend is done
                 }
             }
         })

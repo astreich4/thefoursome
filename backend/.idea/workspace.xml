@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="659e563e-5158-4edc-9acd-cca580f08651" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/newGroup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/newGroup.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/getRounds.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/getRounds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/newGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/newGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addRound.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/addRound.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Pug File" />
         <option value="JavaScript File" />
+        <option value="Pug File" />
       </list>
     </option>
   </component>
@@ -55,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609639004745</updated>
       <workItem from="1609639012381" duration="2895000" />
-      <workItem from="1609644010631" duration="27266000" />
+      <workItem from="1609644010631" duration="29481000" />
     </task>
     <servers />
   </component>
