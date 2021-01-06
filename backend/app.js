@@ -13,6 +13,7 @@ var addRoundRouter = require('./routes/addRound');
 var removeRoundRouter = require('./routes/removeRound');
 var getRoundsRouter = require('./routes/getRounds');
 var newGroupRouter = require('./routes/newGroup');
+var joinGroupRouter = require('./routes/joinGroup');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/addRound',addRoundRouter);
 app.use('/removeRound',removeRoundRouter);
 app.use('/getRounds',getRoundsRouter);
 app.use('/newGroup',newGroupRouter);
+app.use('/joinGroup', joinGroupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

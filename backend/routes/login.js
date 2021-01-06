@@ -34,7 +34,7 @@ router.route('/')
         if (!results.length)  {
             res.send('Username or password not found');
         }
-        else if(results[0].password == hashedp){
+        else if(results[0].password === hashedp){
             //creating a simple secret to be passed back and forth to identify this user
             let hashedsec = md5(req.body.username + randomstring.generate(5));
             let currentUser =

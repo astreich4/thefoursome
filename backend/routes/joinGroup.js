@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const db = require('../mongoCx');
 const { body, validationResult } = require('express-validator');
-let  md5 = require('md5');
 var randomstring = require("randomstring");
 
 
@@ -13,10 +12,11 @@ var randomstring = require("randomstring");
 *
 *  */
 router.route('/').get((req,res,next)=>{
-    res.render('newGroup')
+    res.render('joinGroup')
 })
     .post(
         body('gname').trim().isLength(1),
+        body('passphrase').trim().isLength(1),
 
         async (req, res) => {
             let mongo = await db.getDB('foursome');
@@ -35,32 +35,41 @@ router.route('/').get((req,res,next)=>{
                 if (!errors.isEmpty()) {
                     return res.status(400).json({errors: errors.array()});
                 }
-                let isNameTaken = await mongo.collection('groups').find({groupname: req.body.gname}).toArray();
-                if (isNameTaken.length >0 )  {
+                let groupExist = await mongo.collection('groups').find({groupname: req.body.gname}).toArray();
+                if (!groupExist.length)  {
                     //you are not logged in
-                    console.log("group name already taken")
+                    console.log("group does not exist")
                     //should be a dif. response here for angular
-                    res.render('newGroup');
+                    res.render('joinGroup');
 
-                }else{
-                    let group =
+                }else if (groupExist[0].passphrase === req.body.passphrase) {
+
+                    let player =
                         {
-                            groupname: req.body.gname,
-                            admin: results1[0].username,
-                            passphrase: randomstring.generate(5),
-                            players: [{player: results1[0].username}]
+                            username: results1[0].username
 
                         }
-                    let mongo = await db.getDB('foursome');
-//                   let results = await mongo.collection('names').insert({name: theName});
-                    let results = await mongo.collection('groups').insert(group);
+
+                    const updateDoc = {
+                        $push: {
+                            players: player},
+                    };
+
+                    const result = await mongo.collection('groups').updateOne({groupname: req.body.gname}, updateDoc);
+
 
                     //message to know group has been created
-                    console.log("group has been created");
+                    console.log("player has been added to the group__");
+                    console.log(result);
                     //should be a dif. response here for angular
                     res.redirect('http://localhost:3000');
-                    }
+                }else{
+                    console.log("group passphrase was inccorect")
+                    //should be a dif. response here for angular
+                    res.render('joinGroup');
+
                 }
+            }
         })
 
 module.exports = router;

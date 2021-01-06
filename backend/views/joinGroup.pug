@@ -1,0 +1,14 @@
+h1="Foursome join Group. This is a dev page."
+
+
+p add round form
+    body
+        form(action='/joinGroup',method='POST')
+            p
+            | Group name:
+            input(name='gname',value='')
+            | Passphrase:
+            input(name='passphrase',value='')
+
+
+            input(type='submit', value='Submit')
