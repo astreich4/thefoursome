@@ -1,0 +1,11 @@
+h1="Foursome leave Group. This is a dev page."
+
+
+p add round form
+    body
+        form(action='/leaveGroup',method='POST')
+            p
+            | Group name:
+            input(name='gname',value='')
+
+            input(type='submit', value='Submit')

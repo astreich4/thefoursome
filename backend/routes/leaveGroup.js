@@ -12,11 +12,10 @@ var randomstring = require("randomstring");
 *
 *  */
 router.route('/').get((req,res,next)=>{
-    res.render('joinGroup')
+    res.render('leaveGroup')
 })
     .post(
         body('gname').trim().isLength(1),
-        body('passphrase').trim().isLength(1),
 
         async (req, res) => {
             let mongo = await db.getDB('foursome');
@@ -37,12 +36,12 @@ router.route('/').get((req,res,next)=>{
                 }
                 let groupExist = await mongo.collection('groups').find({groupname: req.body.gname}).toArray();
                 if (!groupExist.length)  {
-                    //get here if the group does not exist
+                    //the group doesnt exist, really only gets here if you leave a group that has just been deleted
                     console.log("group does not exist")
                     //should be a dif. response here for angular
-                    res.render('joinGroup');
+                    res.render('leaveGroup');
 
-                }else if (groupExist[0].passphrase === req.body.passphrase) {
+                }else {
 
                     let player =
                         {
@@ -51,23 +50,18 @@ router.route('/').get((req,res,next)=>{
                         }
 
                     const updateDoc = {
-                        $push: {
+                        $pull: {
                             players: player},
                     };
 
                     const result = await mongo.collection('groups').updateOne({groupname: req.body.gname}, updateDoc);
 
 
-                    //message to know group has been created
-                    console.log("player has been added to the group__");
+                    //message to know the player has left the group
+                    console.log("player has been removed from the group__");
                     console.log(result);
                     //should be a dif. response here for angular
                     res.redirect('http://localhost:3000');
-                }else{
-                    console.log("group passphrase was inccorect")
-                    //should be a dif. response here for angular
-                    res.render('joinGroup');
-
                 }
             }
         })
