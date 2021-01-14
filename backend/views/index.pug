@@ -14,9 +14,13 @@ block content
     p
     a(class='button' href='/newGroup') Create a new Group
     p
-      a(class='button' href='/joinGroup') View Your Rounds
-      p
-      a(class='button' href='/leaveGroup') Create a new Group
+    a(class='button' href='/joinGroup') View Your Rounds
+    p
+    a(class='button' href='/leaveGroup') leave Group
+    p
+    a(class='button' href='/getGroups') View Groups you are in
+    p
+    a(class='button' href='/getGroupRounds') Get Recent Rounds from a whole group
     body
       form(action='/logout',method='POST')
         input(type='submit', value='LOGOUT')

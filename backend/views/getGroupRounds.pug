@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    p fill out the form to see the rounds
+    body
+        form(action='/getGroupRounds',method='POST')
+            p
+            | Group name:
+            input(name='gname',value='')
+    h1= "Rounds the members of your group have entered:"
+
+    p Here are the rounds #{roundstoPug}
+    a(class='button' href='/') go back
