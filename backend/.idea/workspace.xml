@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="659e563e-5158-4edc-9acd-cca580f08651" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/getPlayer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/getPlayer.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/addRound.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/addRound.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addRound.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/addRound.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/getGroups.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/getGroups.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/getPlayer.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/getPlayer.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/getRounds.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/getRounds.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/joinGroup.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/joinGroup.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/leaveGroup.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/leaveGroup.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/login.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/newGroup.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/newGroup.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/removeRound.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/removeRound.pug" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +68,7 @@
       <workItem from="1609639012381" duration="2895000" />
       <workItem from="1609644010631" duration="29628000" />
       <workItem from="1609898316679" duration="6531000" />
-      <workItem from="1610601554020" duration="3931000" />
+      <workItem from="1610601554020" duration="5182000" />
     </task>
     <servers />
   </component>

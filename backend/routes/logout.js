@@ -26,7 +26,8 @@ router.route('/')
                     let results = await mongo.collection('currentUsers').deleteOne({loginsecret: req.cookies.authCookie});
 
                     res.clearCookie('authCookie')
-                    res.render('index', { login: false });
+                    //res.render('index', { login: false });
+                    res.redirect('/');
                 }
             }
         })

@@ -66,7 +66,7 @@ router.route('/').get((req,res,next)=>{
                     // res.send("added round"); -- //use this bit with angular
                     console.log(result)
                     console.log("added the round")
-                    res.redirect('http://localhost:3000'); //use this while testing with pug
+                    res.redirect('/'); //use this while testing with pug
                 }
             }
         })
