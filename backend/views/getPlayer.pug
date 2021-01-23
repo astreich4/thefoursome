@@ -1,0 +1,14 @@
+h1="Foursome lookup player. This is a dev page."
+
+
+p lookup form
+    body
+        form(action='/getPlayer',method='POST')
+            p
+            | Player Username:
+            input(name='uname',value='')
+
+
+            input(type='submit', value='Submit')
+            p
+            p Here is the player #{playerdata}
