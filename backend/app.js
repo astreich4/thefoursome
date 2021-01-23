@@ -15,6 +15,8 @@ var getRoundsRouter = require('./routes/getRounds');
 var newGroupRouter = require('./routes/newGroup');
 var joinGroupRouter = require('./routes/joinGroup');
 var leaveGroupRouter = require('./routes/leaveGroup');
+var getGroupsRouter = require('./routes/getGroups');
+var getGroupRoundsRouter = require('./routes/getGroupRounds');
 
 var app = express();
 
@@ -39,6 +41,8 @@ app.use('/getRounds',getRoundsRouter);
 app.use('/newGroup',newGroupRouter);
 app.use('/joinGroup', joinGroupRouter);
 app.use('/leaveGroup', leaveGroupRouter);
+app.use('/getGroups',getGroupsRouter);
+app.use('/getGroupRounds', getGroupRoundsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
